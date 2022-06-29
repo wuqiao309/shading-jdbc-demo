@@ -7,7 +7,7 @@ spring:
 #        type: ZooKeeper
 #        props: {
 #          "namespace": "sharding-demo",
-#          "server-lists": "localhost:2181",
+#          "server-lists": "ubuntu:2181",
 #        }
     rules:
       readwrite-splitting: # 读写分离配置
@@ -100,7 +100,7 @@ spring:
     datasource.names: write-ds-0,write-ds-1,write-ds-0-read-0,write-ds-0-read-1,write-ds-1-read-0,write-ds-1-read-1
     datasource: {
       "write-ds-0": {
-        "jdbc-url": "jdbc:mysql://localhost:3306/demo?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF-8&allowPublicKeyRetrieval=true",
+        "jdbc-url": "jdbc:mysql://ubuntu:3306/demo?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF-8&allowPublicKeyRetrieval=true",
         "type": "com.zaxxer.hikari.HikariDataSource",
         "driver-class-name": "com.mysql.cj.jdbc.Driver",
         "username": "root",
@@ -108,7 +108,7 @@ spring:
         "max-active": 16
       },
       "write-ds-0-read-0": {
-        "jdbc-url": "jdbc:mysql://localhost:3306/demo?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF-8&allowPublicKeyRetrieval=true",
+        "jdbc-url": "jdbc:mysql://ubuntu:3306/demo?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF-8&allowPublicKeyRetrieval=true",
         "type": "com.zaxxer.hikari.HikariDataSource",
         "driver-class-name": "com.mysql.cj.jdbc.Driver",
         "username": "read_only",
@@ -116,7 +116,7 @@ spring:
         "max-active": 16
       },
       "write-ds-0-read-1": {
-        "jdbc-url": "jdbc:mysql://localhost:3306/demo?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF-8&allowPublicKeyRetrieval=true",
+        "jdbc-url": "jdbc:mysql://ubuntu:3306/demo?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF-8&allowPublicKeyRetrieval=true",
         "type": "com.zaxxer.hikari.HikariDataSource",
         "driver-class-name": "com.mysql.cj.jdbc.Driver",
         "username": "read_only1",
@@ -124,7 +124,7 @@ spring:
         "max-active": 16
       },
       "write-ds-1": {
-        "jdbc-url": "jdbc:mysql://localhost:3307/demo?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF-8&allowPublicKeyRetrieval=true",
+        "jdbc-url": "jdbc:mysql://ubuntu:3307/demo?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF-8&allowPublicKeyRetrieval=true",
         "type": "com.zaxxer.hikari.HikariDataSource",
         "driver-class-name": "com.mysql.cj.jdbc.Driver",
         "username": "root",
@@ -132,7 +132,7 @@ spring:
         "max-active": 16
       },
       "write-ds-1-read-0": {
-        "jdbc-url": "jdbc:mysql://localhost:3307/demo?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF-8&allowPublicKeyRetrieval=true",
+        "jdbc-url": "jdbc:mysql://ubuntu:3307/demo?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF-8&allowPublicKeyRetrieval=true",
         "type": "com.zaxxer.hikari.HikariDataSource",
         "driver-class-name": "com.mysql.cj.jdbc.Driver",
         "username": "read_only",
@@ -140,7 +140,7 @@ spring:
         "max-active": 16
       },
       "write-ds-1-read-1": {
-        "jdbc-url": "jdbc:mysql://localhost:3307/demo?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF-8&allowPublicKeyRetrieval=true",
+        "jdbc-url": "jdbc:mysql://ubuntu:3307/demo?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF-8&allowPublicKeyRetrieval=true",
         "type": "com.zaxxer.hikari.HikariDataSource",
         "driver-class-name": "com.mysql.cj.jdbc.Driver",
         "username": "read_only1",

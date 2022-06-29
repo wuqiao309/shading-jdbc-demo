@@ -13,6 +13,10 @@
 
  Date: 29/06/2022 20:39:13
 */
+CREATE USER 'read_only'@'%' IDENTIFIED BY '1234';
+GRANT SELECT ON *.* TO 'read_only'@'%';
+CREATE USER 'read_only1'@'%' IDENTIFIED BY '1234';
+GRANT SELECT ON *.* TO 'read_only1'@'%';
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
