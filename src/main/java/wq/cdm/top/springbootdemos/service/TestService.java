@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.stream.Collectors;
 
 import javax.annotation.PostConstruct;
 
@@ -39,13 +40,13 @@ public class TestService {
             userMapper.insertUseGeneratedKeys(user);
             log.info("hash:{}, history:{}", user.getUid() % 4, user.toString());
             uids.add(user.getUid());
-            for (int j = 0; j < 4; j++) {
+            for (int j = 0; j < 2; j++) {
                 insertHistory(user);
             }
         }
         log.info("=====================================");
-        uids.forEach(uid -> {
-            List<UserHistory> histories = userMapper.selectUserHistorys(uid);
+        uids.stream().collect(Collectors.groupingBy(e -> e % 4)).forEach((hash, shardUids) -> {
+            List<UserHistory> histories = userMapper.selectUserHistorys(shardUids);
             histories.forEach(e -> {
                 log.info("hash:{}, history:{}", e.getUid() % 4, e.toString());
             });

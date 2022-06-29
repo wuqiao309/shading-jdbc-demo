@@ -22,7 +22,7 @@ public interface UserMapper extends BaseMapper<User> {
     @Select({
             "select h.* from user u ",
             "left join user_history h on u.uid = h.uid ",
-            "where u.uid = #{uid}"
+            "where u.uid in (#{uid})"
     })
-    List<UserHistory> selectUserHistorys(Long uid);
+    List<UserHistory> selectUserHistorys(List<Long> uid);
 }
