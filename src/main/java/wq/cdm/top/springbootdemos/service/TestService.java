@@ -16,6 +16,7 @@ import wq.cdm.top.springbootdemos.dao.entity.User;
 import wq.cdm.top.springbootdemos.dao.entity.UserHistory;
 import wq.cdm.top.springbootdemos.dao.mappers.UserHistoryMapper;
 import wq.cdm.top.springbootdemos.dao.mappers.UserMapper;
+import wq.cdm.top.springbootdemos.dao.model.GenderCount;
 
 /**
  * @author wuqiao <wuqiao@kuaishou.com>
@@ -38,7 +39,7 @@ public class TestService {
             user.setName("name" + i);
             user.setGender(ThreadLocalRandom.current().nextInt(3));
             userMapper.insertUseGeneratedKeys(user);
-            log.info("hash:{}, history:{}", user.getUid() % 4, user.toString());
+            log.info("hash:{}, user:{}", user.getUid() % 4, user.toString());
             uids.add(user.getUid());
             for (int j = 0; j < 2; j++) {
                 insertHistory(user);
@@ -50,10 +51,13 @@ public class TestService {
             histories.forEach(e -> {
                 log.info("hash:{}, history:{}", e.getUid() % 4, e.toString());
             });
+
+            List<GenderCount> genderCounts = userMapper.genderCount(shardUids);
+            genderCounts.forEach(e -> {
+                log.info("genderCount:{}", e.toString());
+            });
+            log.info("=====================================");
         });
-
-
-        log.info("=====================================");
     }
 
     private void insertHistory(User user) {

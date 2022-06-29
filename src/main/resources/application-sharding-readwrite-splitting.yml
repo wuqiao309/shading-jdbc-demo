@@ -149,4 +149,4 @@ spring:
       },
     }
     props:
-      sql-show: true # 打印sql
+      sql-show: false # 是否打印sql
