@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: springboot-demos
+  profiles:
+    include: mybatis, sharding-readwrite-splitting
