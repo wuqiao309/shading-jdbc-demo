@@ -149,5 +149,4 @@ spring:
       },
     }
     props:
-      sql:
-        show: true
+      sql-show: true # 打印sql
