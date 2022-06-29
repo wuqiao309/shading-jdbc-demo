@@ -1,14 +1,14 @@
 spring:
   shardingsphere:
-#    mode:
-#      type: Cluster # 集群模式
-#      overwrite: true # 是否使用本地配置覆盖持久化配置
-#      repository:
-#        type: ZooKeeper
-#        props: {
-#          "namespace": "sharding-demo",
-#          "server-lists": "ubuntu:2181",
-#        }
+    #    mode:
+    #      type: Cluster # 集群模式
+    #      overwrite: true # 是否使用本地配置覆盖持久化配置
+    #      repository:
+    #        type: ZooKeeper
+    #        props: {
+    #          "namespace": "sharding-demo",
+    #          "server-lists": "ubuntu:2181",
+    #        }
     rules:
       readwrite-splitting: # 读写分离配置
         data-sources: {
@@ -69,7 +69,7 @@ spring:
         }
         sharding-algorithms: { # 分片策略
           "database-inline": {
-            "type": "INLINE" ,
+            "type": "INLINE" , # standard 单分片键、 complex 多分片建、 hint 指定分片
             "props": {
               "algorithm-expression": "ds-$->{uid % 2}"
             }
